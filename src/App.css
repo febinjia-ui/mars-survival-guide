@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'Inter', sans-serif;
+  color: #edf0f7;
+  background: #080b12;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+
+button, select { font: inherit; }
+
+.mission {
+  max-width: 1600px;
+  margin: auto;
+  padding: 28px clamp(16px, 4vw, 56px);
+}
+
+.topbar, .brand, .status, .map-heading, .map-footer, footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand { justify-content: flex-start; }
+.planet { color: #ff764c; font-size: 34px; }
+.brand h1 { font-size: 14px; letter-spacing: 2px; margin: 0; }
+.brand p, .eyebrow, .panel-label, .small-label, .status, footer,
+.map-footer, .badge, .mars-caption {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.1px;
+}
+.brand p { color: #828a9c; margin: 7px 0 0; }
+
+.status { color: #9da7b8; }
+.status i {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #73e5ac; display: inline-block;
+  box-shadow: 0 0 12px #73e5ac;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  min-height: 300px;
+  padding: 32px 0 24px;
+}
+.eyebrow, .panel-label { color: #ff946f; }
+.hero h2 { font-size: clamp(38px, 5vw, 66px); line-height: 1.02; margin: 18px 0; letter-spacing: -2px; }
+.hero h2 span { color: #ff7954; }
+.intro { color: #9da6b6; max-width: 460px; line-height: 1.8; font-size: 13px; }
+
+.mars-art { min-height: 260px; display: grid; place-items: center; position: relative; overflow: hidden; }
+.mars-sphere {
+  width: clamp(145px, 19vw, 225px); aspect-ratio: 1; border-radius: 50%;
+  position: relative; overflow: hidden;
+  background:
+    radial-gradient(ellipse at 28% 28%, #ffbf82 0%, transparent 18%),
+    radial-gradient(ellipse at 65% 65%, #722e22 0%, transparent 28%),
+    repeating-linear-gradient(160deg, transparent 0 12px, #642b21 13px 19px, transparent 20px 31px),
+    radial-gradient(circle at 35% 30%, #f69b62, #b94e32 55%, #421b20 88%);
+  box-shadow: inset -25px -12px 45px #160d19, 0 0 70px #e55b3322;
+}
+.mars-sphere span {
+  position: absolute; width: 38%; height: 13%; left: 25%; top: 36%;
+  border-radius: 50%; background: #602c25; transform: rotate(-20deg); opacity: .7;
+}
+.orbit { position: absolute; width: 85%; height: 46%; border: 1px solid #ff8b5b44; border-radius: 50%; transform: rotate(-24deg); }
+.orbit-two { transform: rotate(40deg); width: 95%; border-color: #6c718544; }
+.mars-caption { position: absolute; bottom: 7px; color: #8b94a5; }
+
+.workspace { display: grid; grid-template-columns: 235px minmax(300px, 1fr) 270px; gap: 14px; }
+.panel { background: #10141e; border: 1px solid #252b39; border-radius: 10px; padding: 19px; min-width: 0; }
+.panel h3 { font-size: 15px; margin: 8px 0 20px; }
+.panel-label { margin: 0; font-size: 9px; }
+.layer {
+  width: 100%; display: flex; align-items: center; gap: 9px;
+  background: transparent; border: 1px solid transparent; color: #aeb6c6;
+  padding: 12px 8px; border-radius: 6px; text-align: left; font-size: 11px;
+  cursor: pointer; margin-bottom: 4px;
+}
+.layer.selected { background: #ff805511; border-color: #ff805544; color: #fff; }
+.layer-icon { color: #ff946f; width: 15px; }
+.layer-dot { margin-left: auto; color: #ff946f; }
+.note { color: #788295; font-size: 10px; line-height: 1.7; margin-top: 18px; }
+
+.map-panel { min-height: 430px; }
+.map-heading h3 { margin-bottom: 0; }
+.badge { color: #ffad8f; border: 1px solid #754534; padding: 6px 8px; border-radius: 4px; white-space: nowrap; }
+.map-placeholder {
+  position: relative; min-height: 300px; margin-top: 20px; overflow: hidden;
+  background: radial-gradient(ellipse at center, #281b21, #11151e 70%);
+  border: 1px solid #2b3040; border-radius: 7px;
+  display: grid; place-items: center;
+}
+.map-grid {
+  position: absolute; inset: 0; opacity: .25;
+  background-image: linear-gradient(#777f901a 1px, transparent 1px), linear-gradient(90deg, #777f901a 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+.map-planet {
+  width: 145px; aspect-ratio: 1; border-radius: 50%; position: relative;
+  background: repeating-linear-gradient(15deg, transparent 0 14px, #713526 15px 20px, transparent 21px 34px), radial-gradient(circle at 30% 25%, #ffae75, #bf5436 60%, #55212a);
+  box-shadow: inset -20px -12px 32px #080b12, 0 0 45px #e55b3320;
+}
+.planet-crater { position: absolute; border-radius: 50%; background: #78352699; border: 2px solid #ef986044; }
+.crater-one { width: 26px; height: 18px; left: 28px; top: 35px; }
+.crater-two { width: 16px; height: 12px; right: 26px; top: 70px; }
+.crater-three { width: 31px; height: 17px; left: 65px; bottom: 23px; }
+.map-coord { position: absolute; font: 10px 'DM Mono', monospace; color: #c1a49b; }
+.coord-a { top: 15px; left: 14px; }
+.coord-b { bottom: 15px; right: 14px; }
+.map-message { position: absolute; bottom: 16px; text-align: center; }
+.map-message span { font: 9px 'DM Mono', monospace; color: #ff946f; letter-spacing: 1px; }
+.map-message p { color: #a5adbb; font-size: 10px; }
+.map-footer { color: #778193; font-size: 8px; margin-top: 13px; flex-wrap: wrap; }
+
+.location-panel label { display: block; font-size: 10px; color: #9da6b6; margin-bottom: 8px; }
+.location-panel select {
+  width: 100%; padding: 11px 8px; border: 1px solid #333b4c;
+  border-radius: 5px; background: #171d29; color: #f1f2f6; font-size: 11px;
+}
+.location-card { margin-top: 18px; padding: 14px; background: #171b27; border-radius: 6px; }
+.location-card h4 { font-size: 15px; margin: 12px 0 5px; }
+.location-card > p:not(.panel-label) { color: #a6afbf; font-size: 11px; line-height: 1.6; }
+.divider { height: 1px; background: #343a48; margin: 15px 0; }
+.small-label { color: #ff946f; font-size: 8px; }
+.assessment { display: flex; gap: 10px; margin-top: 17px; padding: 12px; border: 1px solid #34303a; border-radius: 6px; }
+.assessment-icon { color: #ff946f; font-size: 22px; }
+.assessment strong { font-size: 10px; }
+.assessment p { color: #969fb0; font-size: 10px; line-height: 1.6; }
+
+footer { color: #697386; font-size: 9px; margin-top: 24px; padding: 14px 0; border-top: 1px solid #242a36; }
+
+@media (max-width: 1050px) {
+  .workspace { grid-template-columns: 1fr 1fr; }
+  .map-panel { grid-column: 1 / -1; grid-row: 1; }
+}
+@media (max-width: 650px) {
+  .hero { grid-template-columns: 1fr; }
+  .mars-art { min-height: 220px; }
+  .workspace { grid-template-columns: 1fr; }
+  .map-panel { grid-column: auto; }
+  .topbar { align-items: flex-start; }
+  .status { font-size: 8px; }
+  footer { align-items: flex-start; flex-direction: column; }
+}
